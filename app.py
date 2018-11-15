@@ -15,6 +15,11 @@ def catbook_details(id):
 	cat = get_cat(id)
 	return render_template("cat.html", cat=cat)
 
-
+@app.route('/Add_cat', methods=["GET","POST"])
+def Add_cat():
+	create_cat()
+	return render_template("add_cat.html")
+	
+	pass
 if __name__ == '__main__':
    app.run(debug = True)
