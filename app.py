@@ -1,7 +1,8 @@
-from flask import Flask
+from flask import Flask,request
 from flask import render_template
-from database import get_all_cats
-from database import get_cat
+from database import *
+
+
 
 app = Flask(__name__)
 
@@ -17,9 +18,15 @@ def catbook_details(id):
 
 @app.route('/Add_cat', methods=["GET","POST"])
 def Add_cat():
-	create_cat()
-	return render_template("add_cat.html")
-	
-	pass
+	print("Reached Add_Cat")
+	if request.method == 'GET':
+		return render_template("add_cat.html")
+	if request.method == 'POST':
+		print("Reached inside GET")
+		name = request.form['kitty name']
+		print("Error Before")
+		create_cat(name)
+		return render_template("home.html", cats=get_all_cats())
+
 if __name__ == '__main__':
    app.run(debug = True)

@@ -44,7 +44,9 @@
 
       </div>
       {% endfor%}
-      <a href="/Add_cat" class="btn btn-primary">Add cat</a>
+      <form action="{{ url_for('Add_cat') }}" method= "GET">
+        <input type = "submit" class="btn btn-primary" value = "add cat" />
+      </form>
     </div>
 
   <!--BOOTSTRAP Javascript import-->
