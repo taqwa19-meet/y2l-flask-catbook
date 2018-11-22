@@ -27,6 +27,10 @@ def Add_cat():
 		print("Error Before")
 		create_cat(name)
 		return render_template("home.html", cats=get_all_cats())
+@app.route('/vote')
+def cat_vote():
+	vote = cat_vote()
+	return render_template("cat.html", vote=)
 
 if __name__ == '__main__':
    app.run(debug = True)
